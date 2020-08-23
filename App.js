@@ -9,6 +9,8 @@ const fetchFonts = () => {
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
     "art-brewery": require("./assets/fonts/Art-Brewery.ttf"),
+    "ananda": require("./assets/fonts/AnandaAkchyarbold.ttf"),
+    "anand": require("./assets/fonts/AnandaNep.ttf")
   });
 };
 

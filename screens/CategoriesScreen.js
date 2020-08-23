@@ -1,31 +1,44 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, Dimensions, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+
+import { CATEGORIES } from "../data/data";
 import BodyText from "../constants/BodyText";
+import { FlatList } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
+
+const renderCategoryItem = (itemData) => {
+  return (
+    <View style={styles.dim}>
+      <ImageBackground
+        source={itemData.item.imageUrl}
+        style={styles.bgImage}
+        imageStyle={{opacity: 0.8}}
+      >
+        <Text>{itemData.item.title}</Text>
+      </ImageBackground>
+    </View>
+  );
+};
 
 const TravelListScreen = (props) => {
   return (
     <View>
       <View style={styles.screen}>
         <BodyText style={styles.mainAtt}>Main Attractions:</BodyText>
-        <ScrollView
+        <FlatList
           horizontal
-          pagingEnabled
           showsHorizontalScrollIndicator={false}
-          //scrollEventThrottle={16}
-          //snapToAlignment="center"
-        >
-          <View style={styles.dim}>
-            <Text>DIM 1</Text>
-          </View>
-          <View style={styles.dim}>
-            <Text>DIM 2</Text>
-          </View>
-          <View style={styles.dim}>
-            <Text>DIM 3</Text>
-          </View>
-        </ScrollView>
+          data={CATEGORIES}
+          renderItem={renderCategoryItem}
+        />
       </View>
       <View style={styles.screen}>
         <BodyText>Recommended</BodyText>
@@ -43,12 +56,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 36,
   },
   screen: {
-    paddingHorizontal: 36,
+    paddingHorizontal: 30,
     paddingTop: 15,
   },
-  mainAtt:{
-    fontSize:20,
-    padding: 10
+  mainAtt: {
+    fontSize: 20,
+    padding: 10,
   },
   destination: {
     flex: 0,
@@ -56,15 +69,20 @@ const styles = StyleSheet.create({
   },
   dim: {
     height: 220,
-    width: width - 36 * 2,
+    width: 300,
+    //width: width - 36 * 2,
     marginRight: 10,
     borderRadius: 12,
-    backgroundColor: "pink",
-    padding: 10,
+    overflow: "hidden",
+  },
+  bgImage: {
+    width: "100%",
+    height: "100%",
+    justifyContent: "flex-end",
   },
   header: {
     fontSize: 60,
-    fontFamily: "art-brewery",
+    fontFamily: "anand",
     paddingTop: 10,
   },
   subHeader: {
