@@ -4,8 +4,8 @@ import {
   Text,
   StyleSheet,
   Dimensions,
-  ScrollView,
   ImageBackground,
+  Animated
 } from "react-native";
 
 import { CATEGORIES } from "../data/data";
@@ -20,9 +20,13 @@ const renderCategoryItem = (itemData) => {
       <ImageBackground
         source={itemData.item.imageUrl}
         style={styles.bgImage}
-        imageStyle={{opacity: 0.8}}
+        imageStyle={{ opacity: 0.9 }}
       >
-        <Text>{itemData.item.title}</Text>
+        <View style={styles.borderStyle}>
+          <View style={styles.border}>
+            <BodyText style={styles.text}>{itemData.item.title}</BodyText>
+          </View>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -38,40 +42,24 @@ const TravelListScreen = (props) => {
           showsHorizontalScrollIndicator={false}
           data={CATEGORIES}
           renderItem={renderCategoryItem}
+          contentContainerStyle={{ alignItems: "center" }}
+          snapToInterval={320}
+          
         />
       </View>
       <View style={styles.screen}>
-        <BodyText>Recommended</BodyText>
+        <BodyText style={styles.mainAtt}>Recommended:</BodyText>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  flex: {
-    flex: 0,
-    marginTop: 36,
-    flexDirection: "column",
-    backgroundColor: "transparent",
-    paddingHorizontal: 36,
-  },
-  screen: {
-    paddingHorizontal: 30,
-    paddingTop: 15,
-  },
-  mainAtt: {
-    fontSize: 20,
-    padding: 10,
-  },
-  destination: {
-    flex: 0,
-    flexDirection: "column",
-  },
   dim: {
     height: 220,
     width: 300,
     //width: width - 36 * 2,
-    marginRight: 10,
+    marginRight: 20,
     borderRadius: 12,
     overflow: "hidden",
   },
@@ -80,6 +68,41 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "flex-end",
   },
+  border: {
+    //flex: 1,
+    borderRadius: 1,
+    overflow: "hidden",
+    borderWidth: 3,
+    borderColor: "white",
+    height: 200,
+    padding: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  borderStyle: {
+    padding: 15,
+    justifyContent: "center",
+  },
+  text: {
+    fontSize: 20,
+    color: "white",
+  },
+  screen: {
+    paddingHorizontal: 30,
+    paddingTop: 5,
+  },
+  mainAtt: {
+    fontSize: 20,
+    padding: 10,
+  },
+  flex: {
+    flex: 0,
+    marginTop: 24,
+    flexDirection: "column",
+    backgroundColor: "transparent",
+    paddingHorizontal: 36,
+    paddingBottom: 15,
+  },
   header: {
     fontSize: 60,
     fontFamily: "anand",
@@ -87,7 +110,8 @@ const styles = StyleSheet.create({
   },
   subHeader: {
     paddingLeft: 20,
-    fontSize: 10,
+    fontSize: 15,
+    marginLeft: 110,
   },
 });
 
@@ -96,10 +120,7 @@ TravelListScreen.navigationOptions = (navData) => {
     header: () => (
       <View style={styles.flex}>
         <Text style={styles.header}>Jharkhand</Text>
-        <BodyText style={styles.subHeader}>
-          Eastern Indian state known for Hindu shrines, waterfalls, Parasnath
-          Hill temples
-        </BodyText>
+        <BodyText style={styles.subHeader}>Nature's Hidden Jewel</BodyText>
       </View>
     ),
   };
