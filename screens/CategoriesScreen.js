@@ -1,106 +1,80 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   View,
   Text,
   StyleSheet,
   Dimensions,
   ImageBackground,
-  Animated
+  Animated,
+  TouchableOpacity,
 } from "react-native";
 
 import { CATEGORIES } from "../data/data";
 import BodyText from "../constants/BodyText";
-import { FlatList } from "react-native-gesture-handler";
+import Category from "../constants/Category";
 
 const { width, height } = Dimensions.get("window");
-
-const renderCategoryItem = (itemData) => {
-  return (
-    <View style={styles.dim}>
-      <ImageBackground
-        source={itemData.item.imageUrl}
-        style={styles.bgImage}
-        imageStyle={{ opacity: 0.9 }}
-      >
-        <View style={styles.borderStyle}>
-          <View style={styles.border}>
-            <BodyText style={styles.text}>{itemData.item.title}</BodyText>
-          </View>
-        </View>
-      </ImageBackground>
-    </View>
-  );
-};
+const SPACER_ITEM_SIZE = (width - 310) / 2;
 
 const TravelListScreen = (props) => {
+  const scrollX = useRef(new Animated.Value(0)).current;
+
+  const renderCatgItem = ({ item, index }) => {
+    if (!item.imageUrl) {
+      return <View style={{ width: SPACER_ITEM_SIZE }} />;
+    }
+
+    const inputRange = [(index - 2) * 320, (index - 1) * 320, index * 320];
+    const translateY = scrollX.interpolate({
+      inputRange,
+      outputRange: [0, -20, 0],
+    });
+    return (
+      <Category
+        onSelect={() => props.navigation.navigate("Article")}
+        style={{ transform: [{ translateY }] }}
+        imageUrl={item.imageUrl}
+        title={item.title}
+      />
+    );
+  };
+
   return (
     <View>
-      <View style={styles.screen}>
-        <BodyText style={styles.mainAtt}>Main Attractions:</BodyText>
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={CATEGORIES}
-          renderItem={renderCategoryItem}
-          contentContainerStyle={{ alignItems: "center" }}
-          snapToInterval={320}
-          
-        />
-      </View>
-      <View style={styles.screen}>
-        <BodyText style={styles.mainAtt}>Recommended:</BodyText>
-      </View>
+      <BodyText style={styles.mainAtt}>Main Attractions:</BodyText>
+      <Animated.FlatList
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        data={[{ key: "left-spacer" }, ...CATEGORIES, { key: "right-spacer" }]}
+        renderItem={renderCatgItem}
+        contentContainerStyle={{ alignItems: "center", height: 270 }}
+        snapToInterval={320}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+          { useNativeDriver: true } //to use animation
+        )}
+        scrollEventThrottle={16}
+        decelerationRate={0}
+      />
+
+      <BodyText style={styles.mainAtt}>Recommended:</BodyText>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  dim: {
-    height: 220,
-    width: 300,
-    //width: width - 36 * 2,
-    marginRight: 20,
-    borderRadius: 12,
-    overflow: "hidden",
-  },
-  bgImage: {
-    width: "100%",
-    height: "100%",
-    justifyContent: "flex-end",
-  },
-  border: {
-    //flex: 1,
-    borderRadius: 1,
-    overflow: "hidden",
-    borderWidth: 3,
-    borderColor: "white",
-    height: 200,
-    padding: 20,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  borderStyle: {
-    padding: 15,
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: 20,
-    color: "white",
-  },
-  screen: {
-    paddingHorizontal: 30,
-    paddingTop: 5,
-  },
   mainAtt: {
+    paddingHorizontal: 30,
     fontSize: 20,
-    padding: 10,
+    paddingBottom: 10,
   },
+
   flex: {
     flex: 0,
-    marginTop: 24,
+    marginTop: 12,
     flexDirection: "column",
     backgroundColor: "transparent",
-    paddingHorizontal: 36,
+    paddingHorizontal: 20,
     paddingBottom: 15,
   },
   header: {
