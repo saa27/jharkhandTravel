@@ -23,16 +23,8 @@ export const CATEGORIES = [
     "RELIGIOUS TOURISM",
     require("../assets/rajrappa-mandir.jpg")
   ),
-  new Category(
-    "c6",
-    "ADVENTURE TOURISM",
-    require("../assets/zipline.jpg")
-  ),
-  new Category(
-    "c7",
-    "ECO TOURISM",
-    require("../assets/betla.jpg")
-  ),
+  new Category("c6", "ADVENTURE TOURISM", require("../assets/zipline.jpg")),
+  new Category("c7", "ECO TOURISM", require("../assets/betla.jpg")),
 ];
 
 export const PLACES = [
@@ -41,14 +33,16 @@ export const PLACES = [
     ["c1", "c2"],
     "Jonha Falls",
     require("../assets/Dassam_falls.jpg"),
+    "30 km from ranchi",
     "45",
     "50"
   ),
   new Place(
-    "p1",
+    "p2",
     "c1",
-    "Jonha Falls",
+    "Dassam Falls",
     require("../assets/Dassam_falls.jpg"),
+    "20 km from ranchi",
     "45",
     "50"
   ),

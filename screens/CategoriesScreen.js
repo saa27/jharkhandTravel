@@ -31,7 +31,9 @@ const TravelListScreen = (props) => {
     });
     return (
       <Category
-        onSelect={() => props.navigation.navigate("Article")}
+        onSelect={() =>
+          props.navigation.navigate("TravelPlaces", { categoryId: item.id})
+        }
         style={{ transform: [{ translateY }] }}
         imageUrl={item.imageUrl}
         title={item.title}
