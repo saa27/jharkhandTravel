@@ -14,10 +14,12 @@ const TravelPlacesScreen = (props) => {
   const renderGridItem = ({ item, index }) => {
     return (
       <PlacesGrid
-        onSelect={() => {}}
+        onSelect={() =>
+          props.navigation.navigate("PlaceDetail", { pid: item.id })
+        }
         imageUrl={item.imageUrl}
         title={item.title}
-        location ={item.location}
+        location={item.location}
       />
     );
   };
@@ -37,6 +39,7 @@ TravelPlacesScreen.navigationOptions = (navData) => {
   const selectedCategory = CATEGORIES.find((cat) => cat.id === catId);
 
   return {
+    headerShown: true,
     headerTitle: selectedCategory.title,
     headerTitleStyle: { fontFamily: "open-sans" },
   };

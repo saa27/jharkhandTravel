@@ -32,7 +32,7 @@ const TravelListScreen = (props) => {
     return (
       <Category
         onSelect={() =>
-          props.navigation.navigate("TravelPlaces", { categoryId: item.id})
+          props.navigation.navigate("TravelPlaces", { categoryId: item.id })
         }
         style={{ transform: [{ translateY }] }}
         imageUrl={item.imageUrl}
@@ -42,25 +42,41 @@ const TravelListScreen = (props) => {
   };
 
   return (
-    <View>
-      <BodyText style={styles.mainAtt}>Main Attractions:</BodyText>
-      <Animated.FlatList
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        data={[{ key: "left-spacer" }, ...CATEGORIES, { key: "right-spacer" }]}
-        renderItem={renderCatgItem}
-        contentContainerStyle={{ alignItems: "center", height: 270 }}
-        snapToInterval={320}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-          { useNativeDriver: true } //to use animation
-        )}
-        scrollEventThrottle={16}
-        decelerationRate={0}
-      />
+    <ImageBackground
+      source={require("../assets/forest3.png")}
+      style={{ flex: 1, height: "100%", width: "100%", paddingTop: 5 }}
+      imageStyle={{ opacity: 1 }}
+    >
+      <View style={{ marginTop: 0 }}>
+        <View style={styles.flex}>
+          <Text style={styles.header}>Jharkhand</Text>
+          <BodyText style={styles.subHeader}>Nature's Hidden Jewel</BodyText>
+        </View>
+        <View>
+          <BodyText style={styles.mainAtt}>Main Attractions:</BodyText>
+          <Animated.FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={[
+              { key: "left-spacer" },
+              ...CATEGORIES,
+              { key: "right-spacer" },
+            ]}
+            renderItem={renderCatgItem}
+            contentContainerStyle={{ alignItems: "center", height: 270 }}
+            snapToInterval={320}
+            onScroll={Animated.event(
+              [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+              { useNativeDriver: true } //to use animation
+            )}
+            scrollEventThrottle={16}
+            decelerationRate={0}
+          />
 
-      <BodyText style={styles.mainAtt}>Recommended:</BodyText>
-    </View>
+          <BodyText style={styles.recomm}>Recommended:</BodyText>
+        </View>
+      </View>
+    </ImageBackground>
   );
 };
 
@@ -69,6 +85,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     fontSize: 20,
     paddingBottom: 10,
+    color: 'white'
+  },
+  recomm: {
+    paddingHorizontal: 30,
+    fontSize: 20,
+    paddingBottom: 10,
+    color: 'black'
   },
 
   flex: {
@@ -83,15 +106,17 @@ const styles = StyleSheet.create({
     fontSize: 60,
     fontFamily: "anand",
     paddingTop: 10,
+    color: 'white'
   },
   subHeader: {
     paddingLeft: 20,
     fontSize: 15,
     marginLeft: 110,
+    color: 'white'
   },
 });
 
-TravelListScreen.navigationOptions = (navData) => {
+/* TravelListScreen.navigationOptions = (navData) => {
   return {
     header: () => (
       <View style={styles.flex}>
@@ -100,6 +125,6 @@ TravelListScreen.navigationOptions = (navData) => {
       </View>
     ),
   };
-};
+}; */
 
 export default TravelListScreen;

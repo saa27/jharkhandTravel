@@ -16,7 +16,7 @@ const Category = (props) => {
         <ImageBackground
           source={props.imageUrl}
           style={styles.bgImage}
-          imageStyle={{ opacity: 0.9 }}
+          //imageStyle={{ opacity: 0.9 }}
         >
           <View style={styles.borderStyle}>
             <View style={styles.border}>

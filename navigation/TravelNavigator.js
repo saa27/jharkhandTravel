@@ -5,14 +5,18 @@ import { createStackNavigator } from "react-navigation-stack";
 import TravelPlacesScreen from "../screens/TravelPlacesScreen";
 import CategoriesScreen from "../screens/CategoriesScreen";
 import Colors from "../constants/Colors";
+import PlaceDetailScreen from "../screens/PlaceDetailScreen";
 
 const TravelNavigator = createStackNavigator(
   {
     Categories: CategoriesScreen,
     TravelPlaces: TravelPlacesScreen,
+    PlaceDetail: PlaceDetailScreen,
   },
   {
-    defaultNavigationOptions: {},
+    defaultNavigationOptions: {
+      headerShown: false,
+    },
   }
 );
 

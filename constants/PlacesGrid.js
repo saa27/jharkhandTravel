@@ -8,7 +8,7 @@ import {
   TouchableNativeFeedback,
   Image,
 } from "react-native";
-import { Entypo } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import BodyText from "./BodyText";
 
@@ -20,9 +20,9 @@ if (Platform.OS === "android" && Platform.Version >= 21) {
 
 const PlacesGrid = (props) => {
   return (
-    <View style={{ padding: 10 }}>
+    <View style={{ padding: 10, marginTop: 25 }}>
       <View style={styles.card}>
-        <TouchableCmp>
+        <TouchableCmp onPress={props.onSelect}>
           <View>
             <View style={styles.imageContainer}>
               <Image source={props.imageUrl} style={styles.img} />
@@ -32,8 +32,8 @@ const PlacesGrid = (props) => {
             </View>
             <View style={styles.location}>
               <TouchableCmp>
-                <Entypo
-                  name="location-pin"
+                <MaterialIcons
+                  name="location-on"
                   size={30}
                   color="maroon"
                 />
