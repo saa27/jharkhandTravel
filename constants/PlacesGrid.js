@@ -84,7 +84,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     alignItems: "center",
     height: "20%",
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    backgroundColor: "rgba(6, 115, 44, 0.6)"
   },
 });
 

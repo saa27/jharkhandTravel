@@ -42,6 +42,9 @@ TravelPlacesScreen.navigationOptions = (navData) => {
     headerShown: true,
     headerTitle: selectedCategory.title,
     headerTitleStyle: { fontFamily: "open-sans" },
+    headerStyle: {
+      backgroundColor: "rgba(6, 115, 44, 0.9)",
+    },
   };
 };
 
