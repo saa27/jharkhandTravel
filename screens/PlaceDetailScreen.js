@@ -2,6 +2,7 @@ import React from "react";
 
 import { PLACES } from "../data/data";
 import Detail from "../constants/Detail";
+import { View } from "react-native";
 
 const PlaceDetailScreen = (props) => {
   const pid = props.navigation.getParam("pid");
@@ -9,12 +10,14 @@ const PlaceDetailScreen = (props) => {
   const displayedPlaces = PLACES.find((place) => place.id === pid);
 
   return (
-    <Detail
-      imageUrl={displayedPlaces.imageUrl}
-      title={displayedPlaces.title}
-      rating={displayedPlaces.rating}
-      description={displayedPlaces.description}
-    />
+    <View style={{ backgroundColor: "rgba(0,0,0, 0.7)", flex: 1 }}>
+      <Detail
+        imageUrl={displayedPlaces.imageUrl}
+        title={displayedPlaces.title}
+        rating={displayedPlaces.rating}
+        description={displayedPlaces.description}
+      />
+    </View>
   );
 };
 
