@@ -16,6 +16,12 @@ const PlaceDetailScreen = (props) => {
         title={displayedPlaces.title}
         rating={displayedPlaces.rating}
         description={displayedPlaces.description}
+        onSelect={() => {
+          props.navigation.navigate("Map", {
+            lat: displayedPlaces.lat,
+            long: displayedPlaces.long,
+          });
+        }}
       />
     </View>
   );

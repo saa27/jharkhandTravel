@@ -174,7 +174,7 @@ export const PLACES = [
   new Place(
     "p14",
     "c5",
-    "Jagannath temple",
+    "Jagannath Temple",
     require("../assets/jagannath-temple.jpg"),
     "Jagannath Temple in the Bokaro Steel City is a popular tourist attraction, which looks exactly like the Jagannath Temple in Puri, Orrisa. The temple has been recently constructed by the Bokaro Steel Plant Management and has become a prominent place, where devotees come to pray to Lord Jagannath.",
     "120 km from Ranchi",

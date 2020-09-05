@@ -7,17 +7,30 @@ import {
   ImageBackground,
   Animated,
   TouchableOpacity,
+  Image,
 } from "react-native";
 
-import { CATEGORIES } from "../data/data";
+import { CATEGORIES, PLACES } from "../data/data";
 import BodyText from "../constants/BodyText";
 import Category from "../constants/Category";
+import { FlatList } from "react-native-gesture-handler";
+import Rating from "../constants/Rating";
+import RecommGrid from "../constants/RecommGrid";
 
 const { width, height } = Dimensions.get("window");
 const SPACER_ITEM_SIZE = (width - 310) / 2;
 
 const TravelListScreen = (props) => {
   const scrollX = useRef(new Animated.Value(0)).current;
+
+  const displayedPlaces = PLACES.filter(
+    (place) =>
+      place.id === "p20" ||
+      place.id === "p5" ||
+      place.id === "p14" ||
+      place.id === "p22" ||
+      place.id === "p16"
+  );
 
   const renderCatgItem = ({ item, index }) => {
     if (!item.imageUrl) {
@@ -41,13 +54,27 @@ const TravelListScreen = (props) => {
     );
   };
 
+  const renderPlaceItem = ({ item, index }) => {
+    return (
+      <RecommGrid
+        imageUrl={item.imageUrl}
+        title={item.title}
+        location={item.location}
+        rating={item.rating}
+        onSelect={() => {
+          props.navigation.navigate("PlaceDetail", { pid: item.id });
+        }}
+      />
+    );
+  };
+
   return (
     <ImageBackground
       source={require("../assets/forest3.png")}
       style={{ flex: 1, height: "100%", width: "100%", paddingTop: 5 }}
       imageStyle={{ opacity: 1 }}
     >
-      <View style={{ marginTop: 0 }}>
+      <View>
         <View style={styles.flex}>
           <Text style={styles.header}>Jharkhand</Text>
           <BodyText style={styles.subHeader}>Nature's Hidden Jewel</BodyText>
@@ -63,7 +90,7 @@ const TravelListScreen = (props) => {
               { key: "right-spacer" },
             ]}
             renderItem={renderCatgItem}
-            contentContainerStyle={{ alignItems: "center", height: 270 }}
+            contentContainerStyle={{ alignItems: "center", height: 250 }}
             snapToInterval={320}
             onScroll={Animated.event(
               [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -74,6 +101,12 @@ const TravelListScreen = (props) => {
           />
 
           <BodyText style={styles.recomm}>Recommended:</BodyText>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={displayedPlaces}
+            renderItem={renderPlaceItem}
+          />
         </View>
       </View>
     </ImageBackground>
@@ -85,13 +118,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     fontSize: 20,
     paddingBottom: 10,
-    color: 'white'
+    color: "white",
   },
   recomm: {
     paddingHorizontal: 30,
     fontSize: 20,
     paddingBottom: 10,
-    color: 'black'
+    color: "black",
   },
 
   flex: {
@@ -103,17 +136,17 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   },
   header: {
-    fontSize: 60,
+    fontSize: 55,
     fontFamily: "anand",
     paddingTop: 10,
-    color: 'white',
-    marginLeft: 10
+    color: "white",
+    marginLeft: 10,
   },
   subHeader: {
     paddingLeft: 20,
     fontSize: 15,
     marginLeft: 180,
-    color: 'white'
+    color: "white",
   },
 });
 

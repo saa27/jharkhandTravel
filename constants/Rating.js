@@ -9,9 +9,18 @@ const Rating = (props) => {
 
   return (
     <View style={styles.rating}>
-      <Text style={styles.ratingNumber}>{props.rating}</Text>
+      <Text style={{ ...styles.ratingNumber, ...props.numberSize }}>
+        {props.rating}
+      </Text>
       {r.map((type, index) => {
-        return <AntDesign key={index} name={type} size={20} color="#e1ad01" />;
+        return (
+          <AntDesign
+            key={index}
+            name={type}
+            size={props.size}
+            color="#e1ad01"
+          />
+        );
       })}
     </View>
   );
@@ -24,7 +33,7 @@ const styles = StyleSheet.create({
     /* alignItems: "center",
     justifyContent: "center", */
     marginVertical: 4,
-    marginBottom: 10
+    marginBottom: 10,
   },
 });
 

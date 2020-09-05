@@ -1,9 +1,24 @@
 import React from "react";
-import { View, StyleSheet, Image, Text, ScrollView } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  ScrollView,
+  TouchableNativeFeedback,
+  TouchableOpacity,
+  Platform
+} from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import BodyText from "../constants/BodyText";
 import Rating from "../constants/Rating";
+
+let TouchableCmp = TouchableOpacity;
+
+if (Platform.OS === "android" && Platform.Version >= 21) {
+  TouchableCmp = TouchableNativeFeedback;
+}
 
 const Detail = (props) => {
   return (
@@ -14,16 +29,17 @@ const Detail = (props) => {
           <Text style={styles.title}>{props.title.toUpperCase()}</Text>
         </View>
         <View style={styles.details}>
-          <Rating rating={props.rating} />
-          <View
-            style={{
-              flexDirection: "row",
-            }}
-          >
-            <MaterialIcons name="location-on" size={20} color="maroon" />
-            <BodyText style={styles.location}>Locate on Map</BodyText>
-          </View>
-
+          <Rating rating={props.rating} size={20} />
+          <TouchableCmp onPress={props.onSelect}>
+            <View
+              style={{
+                flexDirection: "row",
+              }}
+            >
+              <MaterialIcons name="location-on" size={20} color="maroon" />
+              <BodyText style={styles.location}>Locate on Map</BodyText>
+            </View>
+          </TouchableCmp>
           <BodyText style={styles.text}>{props.description}</BodyText>
         </View>
       </View>
