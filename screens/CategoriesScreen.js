@@ -106,12 +106,13 @@ const styles = StyleSheet.create({
     fontSize: 60,
     fontFamily: "anand",
     paddingTop: 10,
-    color: 'white'
+    color: 'white',
+    marginLeft: 10
   },
   subHeader: {
     paddingLeft: 20,
     fontSize: 15,
-    marginLeft: 110,
+    marginLeft: 180,
     color: 'white'
   },
 });

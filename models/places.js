@@ -7,7 +7,7 @@ class Place {
     description,
     location,
     lat,
-    lang,
+    long,
     rating
   ) {
     this.id = id;
@@ -17,7 +17,7 @@ class Place {
     this.description = description;
     this.location = location;
     this.lat = lat;
-    this.lang = lang;
+    this.long = long;
     this.rating = rating;
   }
 }

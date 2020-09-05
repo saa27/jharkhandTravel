@@ -20,6 +20,9 @@ const TravelPlacesScreen = (props) => {
         imageUrl={item.imageUrl}
         title={item.title}
         location={item.location}
+        onOpenMap={() => {
+          props.navigation.navigate("Map", { lat: item.lat, long: item.long });
+        }}
       />
     );
   };

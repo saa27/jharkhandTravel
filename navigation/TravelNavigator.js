@@ -6,12 +6,14 @@ import TravelPlacesScreen from "../screens/TravelPlacesScreen";
 import CategoriesScreen from "../screens/CategoriesScreen";
 import Colors from "../constants/Colors";
 import PlaceDetailScreen from "../screens/PlaceDetailScreen";
+import MapScreen from "../screens/MapScreen";
 
 const TravelNavigator = createStackNavigator(
   {
     Categories: CategoriesScreen,
     TravelPlaces: TravelPlacesScreen,
     PlaceDetail: PlaceDetailScreen,
+    Map: MapScreen,
   },
   {
     defaultNavigationOptions: {

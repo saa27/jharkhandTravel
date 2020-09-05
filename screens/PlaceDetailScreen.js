@@ -10,7 +10,7 @@ const PlaceDetailScreen = (props) => {
   const displayedPlaces = PLACES.find((place) => place.id === pid);
 
   return (
-    <View style={{ backgroundColor: "rgba(0,0,0, 0.7)", flex: 1 }}>
+    <View style={{ backgroundColor: "rgba(6, 115, 44, 0.2)", flex: 1 }}>
       <Detail
         imageUrl={displayedPlaces.imageUrl}
         title={displayedPlaces.title}

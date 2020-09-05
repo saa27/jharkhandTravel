@@ -37,14 +37,8 @@ const PlacesGrid = (props) => {
                 </View>
               </ImageBackground>
             </View>
-            {/* <View style={styles.imageContainer}>
-              <Image source={props.imageUrl} style={styles.img} />
-            </View>
-            <View style={styles.details}>
-              <BodyText style={styles.title}>{props.title}</BodyText>
-            </View> */}
             <View style={styles.location}>
-              <TouchableCmp>
+              <TouchableCmp onPress={props.onOpenMap}>
                 <MaterialIcons name="location-on" size={30} color="maroon" />
               </TouchableCmp>
               <BodyText>{props.location}</BodyText>
@@ -83,11 +77,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  /* title: {
-    fontSize: 18,
-    marginTop: 4,
-    fontFamily: "open-sans-bold",
-  }, */
   details: {
     alignItems: "center",
     height: "20%",
