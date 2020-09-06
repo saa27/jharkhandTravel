@@ -62,7 +62,10 @@ const TravelListScreen = (props) => {
         location={item.location}
         rating={item.rating}
         onSelect={() => {
-          props.navigation.navigate("PlaceDetail", { pid: item.id });
+          props.navigation.navigate("PlaceDetail", {
+            pid: item.id,
+            cid: item.categoryIds,
+          });
         }}
       />
     );
@@ -90,7 +93,7 @@ const TravelListScreen = (props) => {
               { key: "right-spacer" },
             ]}
             renderItem={renderCatgItem}
-            contentContainerStyle={{ alignItems: "center", height: 250 }}
+            contentContainerStyle={{ alignItems: "center", height: 270 }}
             snapToInterval={320}
             onScroll={Animated.event(
               [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -133,7 +136,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "transparent",
     paddingHorizontal: 20,
-    paddingBottom: 15,
+    paddingBottom: 5,
   },
   header: {
     fontSize: 55,

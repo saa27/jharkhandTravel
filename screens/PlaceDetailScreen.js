@@ -1,6 +1,6 @@
 import React from "react";
 
-import { PLACES } from "../data/data";
+import { PLACES, CATEGORIES } from "../data/data";
 import Detail from "../constants/Detail";
 import { View } from "react-native";
 
@@ -28,12 +28,12 @@ const PlaceDetailScreen = (props) => {
 };
 
 PlaceDetailScreen.navigationOptions = (navData) => {
-  const pid = navData.navigation.getParam("pid");
-  const displayedPlaces = PLACES.find((place) => place.id === pid);
+  const cid = navData.navigation.getParam("cid");
+  const displayedPlaceCatg = CATEGORIES.find((place) => place.id === cid);
 
   return {
     headerShown: true,
-    headerTitle: displayedPlaces.title,
+    headerTitle: displayedPlaceCatg.title,
     headerTitleStyle: { fontFamily: "open-sans" },
     headerStyle: {
       backgroundColor: "rgba(6, 115, 44, 0.8)",

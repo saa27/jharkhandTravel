@@ -36,7 +36,7 @@ const Detail = (props) => {
                 flexDirection: "row",
               }}
             >
-              <MaterialIcons name="location-on" size={20} color="maroon" />
+              <MaterialIcons name="location-on" size={20} color="#B22222" />
               <BodyText style={styles.location}>Locate on Map</BodyText>
             </View>
           </TouchableCmp>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     paddingTop: 10,
-    borderTopColor: "#ccc",
+    borderTopColor: "#A9A9A9",
     borderTopWidth: 1,
   },
   title: {

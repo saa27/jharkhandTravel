@@ -15,7 +15,10 @@ const TravelPlacesScreen = (props) => {
     return (
       <PlacesGrid
         onSelect={() =>
-          props.navigation.navigate("PlaceDetail", { pid: item.id })
+          props.navigation.navigate("PlaceDetail", {
+            pid: item.id,
+            cid: item.categoryIds,
+          })
         }
         imageUrl={item.imageUrl}
         title={item.title}

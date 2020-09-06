@@ -48,7 +48,7 @@ export const PLACES = [
     "45 km from Ranchi",
     23.4498,
     85.6686,
-    5
+    4.3
   ),
   new Place(
     "p3",
@@ -59,7 +59,7 @@ export const PLACES = [
     "145 km from Ranchi",
     23.712025,
     86.331104,
-    4
+    4.0
   ),
   new Place(
     "p4",
@@ -92,18 +92,18 @@ export const PLACES = [
     "280 km from Ranchi",
     24.4781,
     86.6767,
-    5
+    4.6
   ),
   new Place(
     "p7",
     "c2",
-    "Rikhia Ashram",
+    "Rikhiapeeth Ashram",
     require("../assets/rikhia-ashram.jpg"),
     "Rikhia Yoga Ashram (Rikhiapeeth) is situated in a tiny, remote and rural village of Rikhia panchayat, 12 kms from the renowned temple town of Deoghar, also known as Baba BaidyanathDham, in the state of Jharkhand. Undoubtedly the strong spiritual presence of the rishis, enlightened sages, at Rikhia in the past has percolated down to the present day as the place is pure, serene and radiates peace. Its location abounds in divine vibrations as it is the tapobhumi, place of intense spiritual practices and austerities of Swami Satyananda where he performed the Panchagni Vidya, the five fires worship, and other long and arduous Vedic sadhanas or spiritual practices.\n\nRikhia is eternally blessed, as for twenty years it was the abode and tapobhumi of the realized sage and visionary Swami Satyananda who embodied the wisdom, tapasya, austerity, and enlightened understanding of the ancient rishis, and great seers. Paramahansa Satyananda revived the glory of the divine heritage of ancient times by bringing the teachings into a modern context through the medium of Rikhiapeeth, which has developed into a dynamic spiritual epicentre where the cardinal teachings of Swami Sivananda “Serve, Love and Give” are practiced and lived.",
     "345 km from Ranchi",
     24.537495,
     86.735767,
-    5
+    4.6
   ),
   new Place(
     "p8",
@@ -114,7 +114,7 @@ export const PLACES = [
     "150 km from Ranchi",
     24.2397,
     86.3351,
-    5
+    3.2
   ),
   new Place(
     "p9",
@@ -123,9 +123,9 @@ export const PLACES = [
     require("../assets/mccluskie.jpg"),
     "On the Chhotanagpur Plateau, barely 60 kms from Ranchi, lies the idyllic hamlet of Mc Cluskieganj. Once a bastion of the Anglo-Indian community, the place is known as lapra or Ganj among the residents. It is at an altitude of 450 m. the weather is ideal for a brief getaway, in this hamlet, particularly in the sweltering summers. Even in the peak of summer, the mercury seldom crosses 37 degrees Celsius. The humidity too is very low.",
     "64 km from Ranchi",
-    23.64,
-    84.94,
-    5
+    23.6499,
+    84.9440,
+    3.4
   ),
   new Place(
     "p10",
@@ -136,7 +136,7 @@ export const PLACES = [
     "64 km from Ranchi",
     22.5577,
     86.5579,
-    5
+    3.9
   ),
   new Place(
     "p11",
@@ -147,7 +147,7 @@ export const PLACES = [
     "170 km from Ranchi",
     23.8949,
     84.2297,
-    5
+    4.1
   ),
   new Place(
     "p12",
@@ -158,7 +158,7 @@ export const PLACES = [
     "74 km from Ranchi",
     23.10993,
     84.78367,
-    5
+    4.0
   ),
   new Place(
     "p13",
@@ -169,7 +169,7 @@ export const PLACES = [
     "164 km from Ranchi",
     23.4854,
     84.2648,
-    5
+    3.5
   ),
   new Place(
     "p14",
@@ -178,9 +178,9 @@ export const PLACES = [
     require("../assets/jagannath-temple.jpg"),
     "Jagannath Temple in the Bokaro Steel City is a popular tourist attraction, which looks exactly like the Jagannath Temple in Puri, Orrisa. The temple has been recently constructed by the Bokaro Steel Plant Management and has become a prominent place, where devotees come to pray to Lord Jagannath.",
     "120 km from Ranchi",
-    23.3169,
-    85.2816,
-    5
+    23.6775,
+    86.15444,
+    4.5
   ),
   new Place(
     "p15",
@@ -191,7 +191,7 @@ export const PLACES = [
     "60 km from Ranchi",
     23.046313,
     85.682813,
-    5
+    4.6
   ),
   new Place(
     "p16",
@@ -202,7 +202,7 @@ export const PLACES = [
     "65 km from Ranchi",
     23.6319,
     85.7098,
-    5
+    4.6
   ),
   new Place(
     "p17",
@@ -213,18 +213,18 @@ export const PLACES = [
     "150 km from Ranchi",
     23.9625,
     86.1328,
-    5
+    4.6
   ),
   new Place(
     "p18",
     "c6",
-    "Parsailing Training",
+    "Parasailing Training",
     require("../assets/parasailing.jpg"),
     "Giridih offers a remarkable space for an exciting aero sport parasailing, in which you will be sailing in the air up to an altitude of 300 feet through a half cut orange shaped parachute called 'Parasail' that is dragged through a rope linked to a jeep on land or by a motorboat above water. You will be having a thrilling and exciting experience at this height in the absence of any engine, sound or pilot",
     "155 km from Ranchi",
     24.1913,
     86.2996,
-    5
+    4.1
   ),
   new Place(
     "p19",
@@ -235,7 +235,7 @@ export const PLACES = [
     "155 km from Ranchi",
     24.1913,
     86.2996,
-    5
+    4.2
   ),
   new Place(
     "p20",
@@ -246,7 +246,7 @@ export const PLACES = [
     "257 km from Ranchi",
     22.1082,
     85.2904,
-    5
+    4.7
   ),
   new Place(
     "p21",
@@ -257,7 +257,7 @@ export const PLACES = [
     "225 km from Ranchi",
     24.0818,
     86.7731,
-    5
+    4.5
   ),
   new Place(
     "p22",
@@ -268,7 +268,7 @@ export const PLACES = [
     "156 km from Ranchi",
     23.8856,
     84.1924,
-    5
+    4.1
   ),
   new Place(
     "p23",
@@ -279,7 +279,6 @@ export const PLACES = [
     "160 km from Ranchi",
     23.474154,
     84.279171,
-    5
+    4.6
   ),
-  
 ];

@@ -39,7 +39,7 @@ const PlacesGrid = (props) => {
             </View>
             <View style={styles.location}>
               <TouchableCmp onPress={props.onOpenMap}>
-                <MaterialIcons name="location-on" size={30} color="maroon" />
+                <MaterialIcons name="location-on" size={30} color="#B22222" />
               </TouchableCmp>
               <BodyText>{props.location}</BodyText>
             </View>
